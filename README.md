@@ -15,7 +15,7 @@ itself [here](https://github.com/PunishXIV/WrathCombo/blob/main/docs/IPC.md).
 It's best to open issues here; but opening issue posts in the
 [puni.sh discord server](https://discord.gg/Zzrcc8kmvy)'s
 [Wrath Issues Forum](https://discord.com/channels/1001823907193552978/1271175826246865026)
-(with `[API]` in the title) is also fine..
+(with `[API]` in the title) is also fine.
 
 ## Changes
 
