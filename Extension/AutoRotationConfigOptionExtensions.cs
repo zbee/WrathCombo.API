@@ -2,29 +2,35 @@
 
 using System.Reflection;
 using WrathCombo.API.Attribute;
+using WrathCombo.API.Enum;
 
 #endregion
 
 namespace WrathCombo.API.Extension;
 
 /// <summary>
-///     Extension methods for <see cref="API.Enum.AutoRotationConfigOption" />.
+///     Extension methods for <see cref="AutoRotationConfigOption" />.
 /// </summary>
-public static class AutoRotationConfigOption
+public static class AutoRotationConfigOptionExtensions
 {
-    extension(Enum.AutoRotationConfigOption option)
+    extension(AutoRotationConfigOption option)
     {
         /// <summary>
         ///     Gets the expected value type for the given
         ///     <see cref="API.Enum.AutoRotationConfigOption" />.
         /// </summary>
-        /// <value>The option to get the value type for.</value>
-        /// <value>The expected <see cref="Type" />, or <c>null</c> if not defined.</value>
+        /// <value>
+        ///     The option to get the value type for.
+        /// </value>
+        /// <return>
+        ///     The expected <see cref="Type" />,
+        ///     or <c>null</c> if not defined.
+        /// </return>
         public Type? ValueType
         {
             get
             {
-                var enumValue = typeof(Enum.AutoRotationConfigOption)
+                var enumValue = typeof(AutoRotationConfigOption)
                     .GetField(option.ToString());
                 var attr = enumValue?
                     .GetCustomAttribute<ConfigValueTypeAttribute>();
