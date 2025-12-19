@@ -5,22 +5,6 @@ on:
     tags:
       - 'v*'
   workflow_call:
-    inputs:
-      dotnet-version:
-        description: '.NET SDK version'
-        required: false
-        default: '10.x.x'
-        type: string
-      project-path:
-        description: 'Path to the .csproj to pack'
-        required: false
-        default: 'WrathCombo.API.csproj'
-        type: string
-      package-output:
-        description: 'Output folder for packed packages'
-        required: false
-        default: 'bin/Release/nuget'
-        type: string
     secrets:
       NUGET_API_KEY:
         description: 'API key for pushing to NuGet'
@@ -28,16 +12,16 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 env:
-  DOTNET_VERSION: ${{ inputs.dotnet-version || '10.x.x' }}
+  DOTNET_VERSION: '10.x.x'
+  PROJECT_PATH: 'WrathCombo.API.csproj'
+  PACKAGE_OUTPUT: 'bin/Release/nuget'
 
 jobs:
   pack-and-push:
     runs-on: windows-latest
-    env:
-      PROJECT_PATH: ${{ inputs.project-path || 'WrathCombo.API.csproj' }}
-      PACKAGE_OUTPUT: ${{ inputs.package-output || 'bin/Release/nuget' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -61,7 +45,7 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build $env:PROJECT_PATH -c Release -p:ContinuousIntegrationBuild=true
+        run: dotnet build $env:PROJECT_PATH -c Release -p:ContinuousIntegrationBuild=true --no-restore
 
       - name: Pack
         run: dotnet pack $env:PROJECT_PATH -c Release --no-build -p:PackageVersion=$env:PACKAGE_VERSION -p:ContinuousIntegrationBuild=true -o $env:PACKAGE_OUTPUT
@@ -73,6 +57,7 @@ jobs:
           if (Test-Path "$env:PACKAGE_OUTPUT") {
             Write-Host "Listing contents of $env:PACKAGE_OUTPUT";
             Get-ChildItem -Path "$env:PACKAGE_OUTPUT" -Recurse | Format-Table -AutoSize FullName, Length
+            $pkgDir = (Resolve-Path "$env:PACKAGE_OUTPUT").Path
           } else {
             Write-Host "Package output directory missing: $env:PACKAGE_OUTPUT"
           }
@@ -84,7 +69,7 @@ jobs:
           }
           Write-Host "Found .nupkg files:";
           $nupkgs | ForEach-Object { Write-Host $_.FullName }
-          $pkgDir = $nupkgs[0].Directory.FullName
+          if (-not $pkgDir) { $pkgDir = $nupkgs[0].Directory.FullName }
           Write-Host "Using package directory: $pkgDir"
           "PKG_DIR=$pkgDir" >> $env:GITHUB_ENV
 
@@ -108,6 +93,16 @@ jobs:
             Write-Host "Pushing symbols $($pkg.FullName)";
             dotnet nuget push $pkg.FullName --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
           }
+
+      - name: Push to GitHub Packages
+        shell: pwsh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          dotnet nuget push "$env:PKG_DIR/WrathCombo.API.*.nupkg" `
+            --api-key $env:GITHUB_TOKEN `
+            --source "https://nuget.pkg.github.com/PunishXIV/index.json" `
+            --skip-duplicate
 
       - name: Upload packages as artifact
         uses: actions/upload-artifact@v4
