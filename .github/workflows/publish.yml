@@ -59,15 +59,18 @@ jobs:
       - name: Restore
         run: dotnet restore
 
+      - name: Build
+        run: dotnet build $env:PROJECT_PATH -c Release -p:ContinuousIntegrationBuild=true
+
       - name: Pack
-        run: dotnet pack $env:PROJECT_PATH -c Release -p:PackageVersion=$env:PACKAGE_VERSION -p:ContinuousIntegrationBuild=true -o $env:PACKAGE_OUTPUT
+        run: dotnet pack $env:PROJECT_PATH -c Release --no-build -p:PackageVersion=$env:PACKAGE_VERSION -p:ContinuousIntegrationBuild=true -o $env:PACKAGE_OUTPUT
 
       - name: Push package to NuGet
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          dotnet nuget push "bin/Release/nuget/*.nupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push "bin/Release/nuget/*.snupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push "$env:PACKAGE_OUTPUT/*.nupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push "$env:PACKAGE_OUTPUT/*.snupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Upload packages as artifact
         uses: actions/upload-artifact@v4
