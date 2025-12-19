@@ -89,11 +89,25 @@ jobs:
           "PKG_DIR=$pkgDir" >> $env:GITHUB_ENV
 
       - name: Push package to NuGet
+        shell: pwsh
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
         run: |
-          dotnet nuget push "$env:PKG_DIR/*.nupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
-          dotnet nuget push "$env:PKG_DIR/*.snupkg" --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+          Write-Host "Pushing packages from $env:PKG_DIR"
+          $nupkgs = Get-ChildItem -Path $env:PKG_DIR -Filter '*.nupkg'
+          if (-not $nupkgs) {
+            Write-Host "No .nupkg found in $env:PKG_DIR"; exit 1
+          }
+          foreach ($pkg in $nupkgs) {
+            Write-Host "Pushing $($pkg.FullName)";
+            dotnet nuget push $pkg.FullName --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+          }
+
+          $snupkgs = Get-ChildItem -Path $env:PKG_DIR -Filter '*.snupkg'
+          foreach ($pkg in $snupkgs) {
+            Write-Host "Pushing symbols $($pkg.FullName)";
+            dotnet nuget push $pkg.FullName --api-key $env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json --skip-duplicate
+          }
 
       - name: Upload packages as artifact
         uses: actions/upload-artifact@v4
