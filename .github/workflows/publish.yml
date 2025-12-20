@@ -22,6 +22,8 @@ env:
 jobs:
   pack-and-push:
     runs-on: windows-latest
+    env:
+      DALAMUD_HOME: $HOME/.xlcore/dalamud/Hooks/dev
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,6 +33,23 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
           dotnet-quality: preview
+
+      #- name: Setup Dalamud
+      #  id: download_dalamud
+      #  run: |
+      #    curl -L https://goatcorp.github.io/dalamud-distrib/latest.zip -o dalamud.zip
+      #    mkdir -p ${{ env.DALAMUD_HOME }}
+      #    unzip -o dalamud.zip -d ${{ env.DALAMUD_HOME }}
+      #    echo "DALAMUD_HOME=${{ env.DALAMUD_HOME }}" >> $GITHUB_ENV
+
+      - name: Setup STG Dalamud
+        id: download_stg_dalamud
+        run: |
+          curl -L https://goatcorp.github.io/dalamud-distrib/stg/latest.zip -o dalamud.zip
+          mkdir -p ${{ env.DALAMUD_HOME }}
+          unzip -o dalamud.zip -d ${{ env.DALAMUD_HOME }}
+          echo "DALAMUD_HOME=${{ env.DALAMUD_HOME }}" >> $GITHUB_ENV
+
 
       - name: Derive package version from tag
         shell: pwsh
