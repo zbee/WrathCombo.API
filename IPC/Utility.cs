@@ -2,6 +2,8 @@
 
 using WrathCombo.API.IPC.RawMethods;
 
+#pragma warning disable CS0618 // Obsoletes here are likely ours, for consumers
+
 #endregion
 
 namespace WrathCombo.API;
