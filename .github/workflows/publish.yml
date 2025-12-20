@@ -50,7 +50,6 @@ jobs:
           New-Item -Path $dalamudHome -ItemType Directory -Force | Out-Null
           Expand-Archive -Force dalamud.zip -DestinationPath $dalamudHome
 
-
       - name: Derive package version from tag
         shell: pwsh
         run: |
