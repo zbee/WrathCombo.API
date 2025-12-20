@@ -1,3 +1,10 @@
+### `0.1.0` <sup>(2025-12-20)</sup>
+
+Added Raw IPC Subscriber Methods for all IPC endpoints.\
+Stubbed Wrapper methods for IPC Methods.\
+Added Exceptions to categorize all encounterable Exceptions.\
+Designed, but didn't fully implement, wrapper method documentation.
+
 ### `0.0.9` <sup>(2025-12-19)</sup>
 
 Finalize the initial Enums and layout for the package.\
