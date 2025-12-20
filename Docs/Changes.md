@@ -1,3 +1,9 @@
+### `0.1.2` <sup>(2025-12-20)</sup>
+
+Moved `WrathCombo.API.IPC.RawMethods` to
+`WrathCombo.API.WrathIPCWrapper.RawMethods`.\
+Fixed publishing script to include downloading Dalamud.
+
 ### `0.1.1` <sup>(2025-12-20)</sup>
 
 Marked `Utility` `WrathCombo.API.IPC.RawMethods` as obsolete,
