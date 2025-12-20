@@ -19,7 +19,28 @@ It's best to open issues here; but opening issue posts in the
 
 ## Changes
 
-See [docs/changes.md](/docs/changes.md) for a changelog.
+See [Docs/Changes.md](/Docs/Changes.md) for a changelog.
+
+> [!TIP]
+> You can keep up to date with the latest changes to the IPC by subscribing to the
+> GitHub Atom feeds for the core Wrath Combo IPC documentation, and the changes
+> file here. For example, you can do this very easily with
+> [Blogtrottr](https://blogtrottr.com/).\
+> This package's changes feed:
+> ```
+> https://github.com/PunishXIV/WrathCombo.API/commits/main/Docs/Changes.md.atom
+> ```
+>
+> <br/>
+>
+> Wrath Combo IPC Documentation feed:
+> ```
+> https://github.com/PunishXIV/WrathCombo/commits/main/docs/IPC.md.atom
+> ```
+> or @zbee's branch for upcoming changes: (though this link is more likely to move)
+> ```
+> https://github.com/zbee/WrathCombo/commits/IPC/docs/IPC.md.atom
+> ```
 
 ---
 
