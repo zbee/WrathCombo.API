@@ -39,8 +39,30 @@
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.4"/>
     </ItemGroup>
 
+    <!-- Include README; for the NuGet package -->
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="/"/>
+    </ItemGroup>
+
+    <!-- Dalamud -->
+    <PropertyGroup>
+        <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+        <DalamudLibPath Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+            $(HOME)/.xlcore/dalamud/Hooks/dev/
+        </DalamudLibPath>
+        <DalamudLibPath Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+            $(HOME)/Library/Application Support/XIV on Mac/dalamud/Hooks/dev/
+        </DalamudLibPath>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Dalamud">
+            <HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+        <Reference Include="FFXIVClientStructs">
+            <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
     </ItemGroup>
 
 </Project>
