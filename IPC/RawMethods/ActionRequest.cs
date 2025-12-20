@@ -19,7 +19,7 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<ActionType, uint, int, object>
         RequestBlacklist =
             Interface!.GetIpcSubscriber<ActionType, uint, int, object>
@@ -32,7 +32,7 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<ActionType, uint, object>
         ResetBlacklist =
             Interface!.GetIpcSubscriber<ActionType, uint, object>
@@ -45,13 +45,13 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<object>
         ResetAllBlacklists =
             Interface!.GetIpcSubscriber<object>
                 ($"{WC}ResetAllBlacklist");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<ActionType, uint, float>
         GetArtificialCooldown =
             Interface!.GetIpcSubscriber<ActionType, uint, float>
@@ -64,7 +64,7 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<ActionType, uint, int, bool?, object>
         RequestActionUse =
             Interface!.GetIpcSubscriber<ActionType, uint, int, bool?, object>
@@ -77,7 +77,7 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<ActionType, uint, object>
         ResetRequest =
             Interface!.GetIpcSubscriber<ActionType, uint, object>
@@ -90,7 +90,7 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<object>
         ResetAllRequests =
             Interface!.GetIpcSubscriber<object>

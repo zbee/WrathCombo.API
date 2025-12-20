@@ -22,49 +22,49 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<object>
         Test =
             Interface!.GetIpcSubscriber<object>
                 ($"{WC}Test");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<bool>
         IPCReady =
             Interface!.GetIpcSubscriber<bool>
                 ($"{WC}IPCReady");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<string, string, Guid?>
         RegisterForLease =
             Interface!.GetIpcSubscriber<string, string, Guid?>
                 ($"{WC}RegisterForLease");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<string, string, string?, Guid?>
         RegisterForLeaseWithCallback =
             Interface!.GetIpcSubscriber<string, string, string?, Guid?>
                 ($"{WC}RegisterForLeaseWithCallback");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<bool>
         GetAutoRotationState =
             Interface!.GetIpcSubscriber<bool>
                 ($"{WC}GetAutoRotationState");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<Guid, bool, SetResult>
         SetAutoRotationState =
             Interface!.GetIpcSubscriber<Guid, bool, SetResult>
                 ($"{WC}SetAutoRotationState");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<bool>
         IsCurrentJobAutoRotationReady =
             Interface!.GetIpcSubscriber<bool>
                 ($"{WC}IsCurrentJobAutoRotationReady");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<Guid, SetResult>
         SetCurrentJobAutoRotationReady =
             Interface!.GetIpcSubscriber<Guid, SetResult>
@@ -77,13 +77,13 @@ public partial class RawMethod
     ///     </see>
     ///     , <see langword="void" /> return
     /// </remarks>
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<Guid, object>
         ReleaseControl =
             Interface!.GetIpcSubscriber<Guid, object>
                 ($"{WC}ReleaseControl");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<
             Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>>
         IsCurrentJobConfiguredOn =
@@ -92,7 +92,7 @@ public partial class RawMethod
                         Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>>
                     ($"{WC}IsCurrentJobConfiguredOn");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<
             Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>>
         IsCurrentJobAutoModeOn =
@@ -101,37 +101,37 @@ public partial class RawMethod
                         Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>>
                     ($"{WC}IsCurrentJobAutoModeOn");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<uint, List<string>?>
         GetComboNamesForJob =
             Interface!.GetIpcSubscriber<uint, List<string>?>
                 ($"{WC}GetComboNamesForJob");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<uint, Dictionary<string, List<string>>?>
         GetComboOptionNamesForJob =
             Interface!.GetIpcSubscriber<uint, Dictionary<string, List<string>>?>
                 ($"{WC}GetComboOptionNamesForJob");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<string, Dictionary<ComboStateKeys, bool>?>
         GetComboState =
             Interface!.GetIpcSubscriber<string, Dictionary<ComboStateKeys, bool>?>
                 ($"{WC}GetComboState");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<Guid, string, bool, bool, SetResult>
         SetComboState =
             Interface!.GetIpcSubscriber<Guid, string, bool, bool, SetResult>
                 ($"{WC}SetComboState");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<uint, bool>
         GetComboOptionState =
             Interface!.GetIpcSubscriber<uint, bool>
                 ($"{WC}GetComboOptionState");
 
-    internal static readonly
+    public static readonly
         ICallGateSubscriber<Guid, string, bool, SetResult>
         SetComboOptionState =
             Interface!.GetIpcSubscriber<Guid, string, bool, SetResult>
