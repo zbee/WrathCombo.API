@@ -1,18 +1,13 @@
 ﻿#region
 
-using Dalamud.IoC;
-using Dalamud.Plugin;
-using JetBrains.Annotations;
-
 #endregion
 
-namespace WrathCombo.API.IPC.RawMethods;
+namespace WrathCombo.API;
 
-public partial class RawMethod
+public static partial class WrathIPCWrapper
 {
-    private const string WC = "WrathCombo.";
-
-    [PluginService]
-    private static IDalamudPluginInterface Interface { get; [UsedImplicitly] set; }
-        = null!;
+    public partial class RawMethod
+    {
+        private const string WC = "WrathCombo.";
+    }
 }

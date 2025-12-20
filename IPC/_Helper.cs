@@ -11,7 +11,7 @@ public static partial class WrathIPCWrapper
 {
     private static T SafeInvokeRawMethod<T>(Func<T> ipcCall)
     {
-        if (!_isInitialized)
+        if (Interface == null)
             throw new UninitializedException(
                 "WrathCombo IPC Wrapper not initialized.");
 
