@@ -3,6 +3,7 @@
 using Dalamud.Plugin.Ipc;
 using WrathCombo.API.Enum;
 
+// ReSharper disable MemberHidesStaticFromOuterClass
 // ReSharper disable RedundantSuppressNullableWarningExpression
 // ReSharper disable StaticMemberInitializerReferesToMemberBelow
 
@@ -15,7 +16,8 @@ public static partial class WrathIPCWrapper
     public partial class RawMethod
     {
         /// <summary>
-        ///     Meant to throw to test that IPC calls to Wrath Combo are truly working.
+        ///     Meant to throw on failure to test that IPC calls to Wrath Combo
+        ///     are truly going through.
         /// </summary>
         /// <remarks>
         ///     Use
@@ -35,6 +37,8 @@ public static partial class WrathIPCWrapper
             IPCReady =
                 Interface!.GetIpcSubscriber<bool>
                     ($"{WC}IPCReady");
+
+        #region Normal Flow
 
         public static readonly
             ICallGateSubscriber<string, string, Guid?>
@@ -85,6 +89,10 @@ public static partial class WrathIPCWrapper
                 Interface!.GetIpcSubscriber<Guid, object>
                     ($"{WC}ReleaseControl");
 
+        #endregion
+
+        #region Extra Job State Checks
+
         public static readonly
             ICallGateSubscriber<
                 Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys?>>
@@ -104,6 +112,10 @@ public static partial class WrathIPCWrapper
                             Dictionary<ComboTargetTypeKeys, ComboSimplicityLevelKeys
                                 ?>>
                         ($"{WC}IsCurrentJobAutoModeOn");
+
+        #endregion
+
+        #region Fine-Grained Combo Methods
 
         public static readonly
             ICallGateSubscriber<uint, List<string>?>
@@ -131,9 +143,9 @@ public static partial class WrathIPCWrapper
                     ($"{WC}SetComboState");
 
         public static readonly
-            ICallGateSubscriber<uint, bool>
+            ICallGateSubscriber<string, bool>
             GetComboOptionState =
-                Interface!.GetIpcSubscriber<uint, bool>
+                Interface!.GetIpcSubscriber<string, bool>
                     ($"{WC}GetComboOptionState");
 
         public static readonly
@@ -141,5 +153,7 @@ public static partial class WrathIPCWrapper
             SetComboOptionState =
                 Interface!.GetIpcSubscriber<Guid, string, bool, SetResult>
                     ($"{WC}SetComboOptionState");
+
+        #endregion
     }
 }
