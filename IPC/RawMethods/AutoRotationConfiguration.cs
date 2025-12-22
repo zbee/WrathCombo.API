@@ -15,12 +15,16 @@ public static partial class WrathIPCWrapper
 {
     public partial class RawMethod
     {
+        [Obsolete("Use WrathIPCWrapper.GetAutoRotationConfigState instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<object, object?>
             GetAutoRotationConfigState =
                 Interface!.GetIpcSubscriber<object, object?>
                     ($"{WC}GetAutoRotationConfigState");
 
+        [Obsolete("Use Typed WrathIPCWrapper.SetAutoRotationConfigState instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<Guid, object, object, SetResult>
             SetAutoRotationConfigState =
