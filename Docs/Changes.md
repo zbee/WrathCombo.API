@@ -1,3 +1,10 @@
+## `0.2.0` <sup>(2025-12-22)</sup>
+
+There are now wrapper methods for all Raw IPC Methods.\
+Marked `Settings` `WrathCombo.API.WrathIPCWrapper.RawMethods` as
+obsolete,
+to be made internal in `1.1.0` (Wrapper methods are in place for these).
+
 ## `0.1.7` <sup>(2025-12-22)</sup>
 
 Marked `AutoRotationConfiguration` `WrathCombo.API.WrathIPCWrapper.RawMethods` as
