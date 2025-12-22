@@ -3,6 +3,7 @@
 using Dalamud.Plugin.Ipc;
 using FFXIVClientStructs.FFXIV.Client.Game;
 
+// ReSharper disable MemberHidesStaticFromOuterClass
 // ReSharper disable RedundantSuppressNullableWarningExpression
 // ReSharper disable StaticMemberInitializerReferesToMemberBelow
 
@@ -21,6 +22,8 @@ public static partial class WrathIPCWrapper
         ///     </see>
         ///     , <see langword="void" /> return
         /// </remarks>
+        [Obsolete("Use WrathIPCWrapper.RequestBlacklist instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<ActionType, uint, int, object>
             RequestBlacklist =
@@ -34,6 +37,8 @@ public static partial class WrathIPCWrapper
         ///     </see>
         ///     , <see langword="void" /> return
         /// </remarks>
+        [Obsolete("Use WrathIPCWrapper.ResetBlacklist instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<ActionType, uint, object>
             ResetBlacklist =
@@ -47,12 +52,16 @@ public static partial class WrathIPCWrapper
         ///     </see>
         ///     , <see langword="void" /> return
         /// </remarks>
+        [Obsolete("Use WrathIPCWrapper.ResetAllBlacklists instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<object>
             ResetAllBlacklists =
                 Interface!.GetIpcSubscriber<object>
                     ($"{WC}ResetAllBlacklist");
 
+        [Obsolete("Use WrathIPCWrapper.GetArtificialCooldown instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<ActionType, uint, float>
             GetArtificialCooldown =
@@ -66,6 +75,8 @@ public static partial class WrathIPCWrapper
         ///     </see>
         ///     , <see langword="void" /> return
         /// </remarks>
+        [Obsolete("Use WrathIPCWrapper.RequestActionUse instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<ActionType, uint, int, bool?, object>
             RequestActionUse =
@@ -79,6 +90,8 @@ public static partial class WrathIPCWrapper
         ///     </see>
         ///     , <see langword="void" /> return
         /// </remarks>
+        [Obsolete("Use WrathIPCWrapper.ResetRequest instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<ActionType, uint, object>
             ResetRequest =
@@ -92,6 +105,8 @@ public static partial class WrathIPCWrapper
         ///     </see>
         ///     , <see langword="void" /> return
         /// </remarks>
+        [Obsolete("Use WrathIPCWrapper.ResetAllRequests instead. " +
+                  "Will be made internal in 1.1.0.")]
         public static readonly
             ICallGateSubscriber<object>
             ResetAllRequests =
