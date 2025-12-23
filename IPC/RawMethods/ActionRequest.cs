@@ -28,7 +28,7 @@ public static partial class WrathIPCWrapper
             ICallGateSubscriber<ActionType, uint, int, object>
             RequestBlacklist =
                 Interface!.GetIpcSubscriber<ActionType, uint, int, object>
-                    ($"{WC}RequestBlacklist");
+                    ($"{WC}{AR}RequestBlacklist");
 
         /// <remarks>
         ///     Use
@@ -43,7 +43,7 @@ public static partial class WrathIPCWrapper
             ICallGateSubscriber<ActionType, uint, object>
             ResetBlacklist =
                 Interface!.GetIpcSubscriber<ActionType, uint, object>
-                    ($"{WC}ResetBlacklist");
+                    ($"{WC}{AR}ResetBlacklist");
 
         /// <remarks>
         ///     Use
@@ -58,7 +58,7 @@ public static partial class WrathIPCWrapper
             ICallGateSubscriber<object>
             ResetAllBlacklists =
                 Interface!.GetIpcSubscriber<object>
-                    ($"{WC}ResetAllBlacklist");
+                    ($"{WC}{AR}ResetAllBlacklist");
 
         [Obsolete("Use WrathIPCWrapper.GetArtificialCooldown instead. " +
                   "Will be made internal in 1.1.0.")]
@@ -66,7 +66,7 @@ public static partial class WrathIPCWrapper
             ICallGateSubscriber<ActionType, uint, float>
             GetArtificialCooldown =
                 Interface!.GetIpcSubscriber<ActionType, uint, float>
-                    ($"{WC}GetArtificialCooldown");
+                    ($"{WC}{AR}GetArtificialCooldown");
 
         /// <remarks>
         ///     Use
@@ -81,7 +81,7 @@ public static partial class WrathIPCWrapper
             ICallGateSubscriber<ActionType, uint, int, bool?, object>
             RequestActionUse =
                 Interface!.GetIpcSubscriber<ActionType, uint, int, bool?, object>
-                    ($"{WC}RequestActionUse");
+                    ($"{WC}{AR}RequestActionUse");
 
         /// <remarks>
         ///     Use
@@ -96,7 +96,7 @@ public static partial class WrathIPCWrapper
             ICallGateSubscriber<ActionType, uint, object>
             ResetRequest =
                 Interface!.GetIpcSubscriber<ActionType, uint, object>
-                    ($"{WC}ResetRequest");
+                    ($"{WC}{AR}ResetRequest");
 
         /// <remarks>
         ///     Use
@@ -111,6 +111,6 @@ public static partial class WrathIPCWrapper
             ICallGateSubscriber<object>
             ResetAllRequests =
                 Interface!.GetIpcSubscriber<object>
-                    ($"{WC}ResetAllRequests");
+                    ($"{WC}{AR}ResetAllRequests");
     }
 }
