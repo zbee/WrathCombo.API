@@ -37,7 +37,7 @@ public static partial class WrathIPCWrapper
                     ?.GetValue(null) as bool?;
                 if (isInit != true) return null;
 
-                var raw = svcType.GetField("PluginInterface",
+                var raw = svcType.GetProperty("PluginInterface",
                         BindingFlags.Public | BindingFlags.Static)
                     ?.GetValue(null);
                 if (raw is null) return null;
