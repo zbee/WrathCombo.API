@@ -19,7 +19,7 @@ public static partial class WrathIPCWrapper
     ///     Whether an action with the weave time specified can be used currently.
     /// </returns>
     /// <exception cref="Error.UninitializedException">
-    ///     When <see cref="InitWrapper">InitWrapper()</see> has not been called.
+    ///     When <see cref="Init">InitWrapper()</see> has not been called.
     /// </exception>
     /// <exception cref="Error.APIBehindException">
     ///     When this package needs updating.

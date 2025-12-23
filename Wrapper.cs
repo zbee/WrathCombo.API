@@ -52,7 +52,7 @@ public static partial class WrathIPCWrapper
         set;
     }
 
-    public static void InitWrapper(IDalamudPluginInterface pluginInterface)
+    public static void Init(IDalamudPluginInterface pluginInterface)
     {
         Interface = pluginInterface;
     }
