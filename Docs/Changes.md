@@ -1,3 +1,8 @@
+## `0.4.2` <sup>(2025-12-24)</sup>
+
+Made `Init()` overload with only the `suppressedErrorTypes` parameter have no
+default value, to avoid confusion between the overloads.
+
 ## `0.4.1` <sup>(2025-12-24)</sup>
 
 Added correct fallback values when error types are suppressed,
