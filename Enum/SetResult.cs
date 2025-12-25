@@ -23,9 +23,11 @@ public enum SetResult
     [Description("IPC services are currently disabled.")]
     IPCDisabled = 10,
 
-    [Description("Invalid lease.")] InvalidLease = 11,
+    [Description("Invalid lease.")]
+    InvalidLease = 11,
 
-    [Description("Blacklisted lease.")] BlacklistedLease = 12,
+    [Description("Blacklisted lease.")]
+    BlacklistedLease = 12,
 
     [Description("Configuration you are trying to set is already set.")]
     Duplicate = 13,
