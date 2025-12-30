@@ -1,3 +1,10 @@
+## `0.4.3` <sup>(2025-12-30)</sup>
+
+Added `Enum.AutoRotationConfigOption.DPSAlwaysHardTarget` and
+`HealerAlwaysHardTarget` options now that Auto Rotation does not change the hard
+target.\
+(available in WrathCombo `1.0.3.4` and later)
+
 ## `0.4.2` <sup>(2025-12-24)</sup>
 
 Made `Init()` overload with only the `suppressedErrorTypes` parameter have no
