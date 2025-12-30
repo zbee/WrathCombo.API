@@ -1,4 +1,4 @@
-#region
+﻿#region
 
 using WrathCombo.API.Attribute;
 
@@ -67,4 +67,10 @@ public enum AutoRotationConfigOption
 
     [ConfigValueType(typeof(bool))]
     AutoRezDPSJobsHealersOnly = 18,
+
+    [ConfigValueType(typeof(bool))]
+    DPSAlwaysHardTarget = 19,
+
+    [ConfigValueType(typeof(bool))]
+    HealerAlwaysHardTarget = 20,
 }
