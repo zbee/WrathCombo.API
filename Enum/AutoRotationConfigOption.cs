@@ -73,4 +73,10 @@ public enum AutoRotationConfigOption
 
     [ConfigValueType(typeof(bool))]
     HealerAlwaysHardTarget = 20,
+
+    [ConfigValueType(typeof(bool))]
+    BypassQuest = 21,
+
+    [ConfigValueType(typeof(bool))]
+    BypassFate = 22,
 }
