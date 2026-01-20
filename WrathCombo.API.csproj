@@ -37,10 +37,6 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="JetBrains.Annotations" Version="2025.2.4"/>
-    </ItemGroup>
-
     <!-- Include README; for the NuGet package -->
     <ItemGroup>
         <None Include="README.md" Pack="true" PackagePath="/"/>
