@@ -1,3 +1,7 @@
+## `0.5.1` <sup>(2026-01-19)</sup>
+
+Added an extension to `Enum.CancellationReason` to get the Description.
+
 ## `0.5.0` <sup>(2026-01-19)</sup>
 
 All `API.Error`s now inherit from `API.Error.Exception` instead of directly from
