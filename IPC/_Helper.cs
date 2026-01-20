@@ -3,6 +3,7 @@
 using Dalamud.Plugin.Ipc.Exceptions;
 using WrathCombo.API.Enum;
 using WrathCombo.API.Error;
+using Exception = System.Exception;
 
 #endregion
 
