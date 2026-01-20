@@ -1,3 +1,8 @@
+## `0.5.0` <sup>(2026-01-19)</sup>
+
+All `API.Error`s now inherit from `API.Error.Exception` instead of directly from
+`System.Exception`.
+
 ## `0.4.4` <sup>(2026-01-17)</sup>
 
 Added `Enum.AutoRotationConfigOption.BypassQuest` and
