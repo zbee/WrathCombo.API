@@ -1,3 +1,4 @@
 ﻿namespace WrathCombo.API.Error;
 
-public class UnexpectedException(string? msg, Exception? ex) : Exception(msg, ex);
+public class UnexpectedException(string? msg, System.Exception? ex)
+    : Exception(msg, ex);
